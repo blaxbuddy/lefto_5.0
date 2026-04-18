@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Dashboard - Lefto Food Rescue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="ngo.css">
+</head>
+<body>
+
+    <div class="doodle doodle-leaf">🍃</div>
+    <div class="doodle doodle-heart">💚</div>
+    <div class="doodle doodle-handshake">🤝</div>
+    <div class="doodle doodle-globe">🌍</div>
+
+    <header class="top-header">
+        <div class="logo-container">
+            <img src="cropped_circle_image.png" alt="Lefto Logo" class="brand-logo">
+            <span class="brand-text">Lefto</span>
+        </div>
+    </header>
+
+    <div class="action-container" id="actionContainer">
+        <button class="request-btn" id="requestDonationBtn">Request for Donation !</button>
+    </div>
+
+    <main class="main-view" id="mainViewContainer">
+        <div class="map-wrapper" id="mapContainer">
+            <iframe 
+          src="https://livemapdashboard.lovable.app" 
+          style="width: 100%; height: 100%; border: none; border-radius: 8px;"
+          title="Live Map Hub">
+        </iframe>
+            <button class="fullscreen-btn" id="fullscreenBtn" onclick="toggleFullscreen()">
+                <span class="material-icons" id="fullscreenIcon">fullscreen</span>
+            </button>
+        </div>
+
+        <div class="info-wrapper">
+            <h2>Package Information</h2>
+            <div class="info-row">
+                <span class="material-icons">info</span>
+                <span id="packageDetailsText">Waiting for details...</span>
+            </div>
+            <div class="info-row">
+                <span class="material-icons">place</span>
+                <span id="packageDistance">Distance: Calculating...</span>
+            </div>
+            
+            <div class="otp-display-panel" id="driverOtpPanel">
+                <span class="otp-title">Provide this PIN to the driver:</span>
+                <span class="otp-number" id="generatedOtp">----</span>
+            </div>
+        </div>
+    </main>
+
+    <div class="overlay" id="popupOverlay">
+        <div class="pop-up-card" id="popupRequirement">
+            <button class="close-btn" id="closePopupBtn">
+                <span class="material-icons">close</span>
+            </button>
+
+            <h2>Set Food Requirement</h2>
+            <p>Please specify your required food quantity.</p>
+            <div class="input-group">
+                <input type="number" class="input-field" id="foodQuantity" placeholder="e.g. 50">
+                <select class="dropdown-select" id="foodUnit">
+                    <option value="per serving">per serving</option>
+                </select>
+            </div>
+            <button class="btn-submit" onclick="submitRequirement()">Submit Request</button>
+        </div>
+    </div>
+
+    <script src="ngo.js"></script>
+</body>
+</html>
